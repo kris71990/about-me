@@ -1,0 +1,26 @@
+body {
+    background-color: #E8ECFE;
+    text-align: center;
+}
+
+div {
+    width: 400px;
+    margin: auto;
+    text-align: center;
+    background-color: #E1FADE;
+    padding: 50px 50px 50px 50px;
+    border: 2px solid black;
+}
+
+span {
+    font-style: italic;
+}
+
+.correct {
+    background-color: #23F70A;
+}
+
+.incorrect {
+    background-color: #F95446;
+}
+
