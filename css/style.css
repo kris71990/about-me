@@ -12,7 +12,7 @@ div {
     border: 2px solid black;
 }
 
-span {
+div span {
     font-style: italic;
 }
 
