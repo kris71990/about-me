@@ -205,9 +205,9 @@ do {
   var inArray = false;
 
   // loop over countries array and checks if user information matches any contents
-  for (var x = 0; x < countries.length; x++) {
+  for (var j = 0; j < countries.length; j++) {
 
-    if (country === countries[x].toLowerCase()) {
+    if (country === countries[j].toLowerCase()) {
       console.log('Question 7: You are correct! ' + livedString);
       alert('You are correct! ' + livedString);
       inArray = true;
@@ -248,5 +248,5 @@ if (numberCorrect >= 4) {
   scoreField.className = 'incorrect';
 }
 
-scoreField.innerHTML = numberCorrect + '/7 = ' + Math.round((numberCorrect * (100/7))) +
+scoreField.innerHTML = numberCorrect + '/7 = ' + Math.round((numberCorrect * (100 / 7))) +
 '%' + '<br />' + pass;
