@@ -149,7 +149,6 @@ for (var i = 0; i < 4; i++) {
       podcastsField.innerHTML = 'Your answer: ' + podcasts +
         '; ---> My answer: 306';
     }
-    continue;
   } else if (podcasts > 306) {
     console.log('Question 6: You answered ' + podcasts + ', which is too many.');
     alert('That is more than I have.');
@@ -159,7 +158,6 @@ for (var i = 0; i < 4; i++) {
       podcastsField.innerHTML = 'Your answer: ' + podcasts +
         '; ---> My answer: 306';
     }
-    continue;
   } else if (podcasts < 306) {
     console.log('Question 6: You answered ' + podcasts + ', which is too few.');
     alert('I have more than that.');
@@ -169,7 +167,6 @@ for (var i = 0; i < 4; i++) {
       podcastsField.innerHTML = 'Your answer: ' + podcasts +
         '; ---> My answer: 306';
     }
-    continue;
   } else {
     console.log('Question 6: You answered ' + podcasts + ', which is correct!');
     alert('Wow, that was a lucky guess.');
