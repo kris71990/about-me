@@ -1,19 +1,55 @@
 body {
     background-color: #E8ECFE;
+}
+
+header {
     text-align: center;
 }
 
 div {
+    text-align: center;
+}
+
+.bio {
+    display: inline-block;
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    vertical-align: top;
+}
+
+#school > li {
+    margin: 10px; 
+    list-style-type: none;
+}
+
+.info li{
+    list-style-type: square;
+    padding-left: 10px;
+    list-style-position: inside;
+}
+
+#top-ten li {
+    padding: 5px;
+}
+
+#quiz {
     width: 400px;
     margin: auto;
     text-align: center;
     background-color: #E1FADE;
-    padding: 50px 50px 50px 50px;
+    padding: 50px;
     border: 2px solid black;
 }
 
-div span {
+#quiz div {
     font-style: italic;
+}
+
+
+#score {
+    width: 100px;
+    margin: 0 auto;
 }
 
 .correct {

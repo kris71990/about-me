@@ -9,7 +9,7 @@ var iceCreamField = document.getElementById('iceCream');
 
 if (iceCream === 'y' || iceCream === 'yes' || iceCream === 'n' || 
     iceCream === 'no') {
-        console.log('You answered ' + iceCream + '.');
+        console.log('Question 1: You answered ' + iceCream + '.');
 
         if (iceCream === 'no' || iceCream === 'n') {
             iceCreamField.className = 'correct';
@@ -22,7 +22,7 @@ if (iceCream === 'y' || iceCream === 'yes' || iceCream === 'n' ||
         '; ---> My answer: no';
 
 } else {
-    console.log('You didn\'t answer yes or no.');
+    console.log('Question 1: You didn\'t answer yes or no.');
     iceCreamField.className = 'incorrect';
     iceCreamField.innerHTML = 'Your answer: n/a; ---> My answer: no';
 }
@@ -32,7 +32,7 @@ var pizzaField = document.getElementById('pizza');
 
 if (pizza === 'y' || pizza === 'yes' || pizza === 'n' || 
     pizza === 'no') {
-        console.log('You answered ' + pizza + '.');
+        console.log('Question 2: You answered ' + pizza + '.');
 
         if (pizza === 'no' || pizza === 'n') {
             pizzaField.className = 'incorrect';
@@ -45,7 +45,7 @@ if (pizza === 'y' || pizza === 'yes' || pizza === 'n' ||
         '; ---> My answer: yes';
 
 } else {
-    console.log('You didn\'t answer yes or no.');
+    console.log('Question 2: You didn\'t answer yes or no.');
     pizzaField.className = 'incorrect';
     pizzaField.innerHTML = 'Your answer: n/a; ---> My answer: yes';
 }
@@ -55,7 +55,7 @@ var brusselSproutsField = document.getElementById('brusselSprouts');
 
 if (brusselSprouts === 'y' || brusselSprouts === 'yes' || brusselSprouts === 'n' || 
     brusselSprouts === 'no') {
-        console.log('You answered ' + brusselSprouts + '.');
+        console.log('Question 3: You answered ' + brusselSprouts + '.');
 
         if (brusselSprouts === 'no' || brusselSprouts === 'n') {
             brusselSproutsField.className = 'incorrect';
@@ -68,7 +68,7 @@ if (brusselSprouts === 'y' || brusselSprouts === 'yes' || brusselSprouts === 'n'
         '; ---> My answer: yes';
 
 } else {
-    console.log('You didn\'t answer yes or no.');
+    console.log('Question 3: You didn\'t answer yes or no.');
     brusselSproutsField.className = 'incorrect';
     brusselSproutsField.innerHTML = 'Your answer: n/a; ---> My answer: yes';
 }
@@ -78,7 +78,7 @@ var cakeField = document.getElementById('cake');
 
 if (cake === 'y' || cake === 'yes' || cake === 'n' || 
     cake === 'no') {
-        console.log('You answered ' + cake + '.');
+        console.log('Question 4: You answered ' + cake + '.');
 
         if (cake === 'no' || cake === 'n') {
             cakeField.className = 'correct';
@@ -91,7 +91,7 @@ if (cake === 'y' || cake === 'yes' || cake === 'n' ||
         '; ---> My answer: no';
 
 } else {
-    console.log('You didn\'t answer yes or no.');
+    console.log('Question 4: You didn\'t answer yes or no.');
     cakeField.className = 'incorrect';
     cakeField.innerHTML = 'Your answer: n/a; ---> My answer: no';
 }
@@ -101,7 +101,7 @@ var eatingField = document.getElementById('eating');
 
 if (eating === 'y' || eating === 'yes' || eating === 'n' || 
     eating === 'no') {
-        console.log('You answered ' + eating + '.');
+        console.log('Question 5: You answered ' + eating + '.');
 
         if (eating === 'no' || eating === 'n') {
             eatingField.className = 'incorrect';
@@ -114,23 +114,122 @@ if (eating === 'y' || eating === 'yes' || eating === 'n' ||
         '; ---> My answer: yes';
 
 } else {
-    console.log('You didn\'t answer yes or no.');
+    console.log('Question 5: You didn\'t answer yes or no.');
     eatingField.className = 'incorrect';
     eatingField.innerHTML = 'Your answer: n/a; ---> My answer: yes';
 }
+
+//asks question four times, responding to user input
+var podcastsField = document.getElementById('podcasts');
+for (var i = 0; i < 4; i++) {
+    var podcasts = prompt('How many unlistened podcasts do I have on my phone? (Enter numeric value)');
+    if (isNaN(podcasts)) {
+        console.log('You didn\'t enter a numeric value, and you wasted a guess -.-');
+        confirm('Enter a numeric value this time.');
+        if (i === 3) {
+            confirm('You ran out of guesses, sorry.');
+            podcastsField.className = 'incorrect';
+            podcastsField.innerHTML = 'Your answer: ' + podcasts + 
+        '; ---> My answer: 306'
+        }
+        continue;
+    } else if (podcasts > 306) {
+        console.log('Question 6: You answered ' + podcasts + ', which is too many.');
+        confirm('That is more than I have.');
+        if (i === 3) {
+            confirm('You ran out of guesses, sorry.');
+            podcastsField.className = 'incorrect';
+            podcastsField.innerHTML = 'Your answer: ' + podcasts + 
+        '; ---> My answer: 306'
+        }
+        continue;
+    } else if (podcasts < 306) {
+        console.log('Question 6: You answered ' + podcasts + ', which is too few.');
+        confirm('I have more than that.');
+        if (i === 3) {
+            confirm('You ran out of guesses, sorry.');
+            podcastsField.className = 'incorrect';
+            podcastsField.innerHTML = 'Your answer: ' + podcasts + 
+        '; ---> My answer: 306'
+        }
+        continue;
+    } else {
+        console.log('Question 6: You answered ' + podcasts + ', which is correct!');
+        confirm('Wow, that was a lucky guess.');
+        podcastsField.className = 'correct';
+        podcastsField.innerHTML = 'Your answer: ' + podcasts + 
+        '; ---> My answer: 306';
+        numberCorrect += 1;
+        break;
+    }
+}
+
+//asks question and checks array of correct answers; if incorrect, question repeats.
+//if correct, a congratulations message appears along with the other correct answers.
+var countryField = document.getElementById('country');
+var countries = ['usa', 'russia', 'china', 'latvia', 'uk'];
+var guesses = 0;
+var livedString = 'I have lived in: '
+
+for (var x = 0; x < countries.length; x++) {
+    if (countries[x] === 'usa' || countries[x] === 'uk') {
+        countries[x] = countries[x].toUpperCase();
+    } else {
+       countries[x] = countries[x].charAt(0).toUpperCase() + countries[x].slice(1);
+    }
+
+    if (x === countries.length - 1) {
+        livedString += 'and ' + countries[x] + '.';
+    } else {
+        livedString += countries[x] + ', ';
+    }
+}
+
+do {
+    var country = prompt('Name a country I have lived in for longer than a month.').toLowerCase();
+    var inArray = false;
+    for (var x = 0; x < countries.length; x++) {
+
+        if (country === countries[x].toLowerCase()) {
+            console.log('You are correct! ' + livedString);
+            confirm('You are correct! ' + livedString);
+            inArray = true;
+            countryField.className = 'correct'; 
+            countryField.innerHTML = 'Your answer: ' + country + 
+            '; ---> My answers: ' + livedString;
+            numberCorrect += 1;
+            guesses = 7;
+            break;
+        } else {
+            continue;
+        }
+    }
+
+    guesses += 1;
+    if (inArray === false) {
+        console.log('You are wrong.');
+        confirm('You are wrong, guess again.');
+        if (guesses === 6) {
+            countryField.innerHTML = 'Your answer: ' + country + 
+            '; ---> My answers: ' + livedString;
+            countryField.className = 'incorrect'; 
+        }
+    }
+
+} while (guesses < 7);
+
 
 // keeps track of score and administers a score and a pass/fail grade
 var scoreField = document.getElementById('score');
 var pass;
 
-if (numberCorrect >= 3) {
+if (numberCorrect >= 4) {
     pass = 'You passed!';
     scoreField.className = 'correct';
-} else if (numberCorrect < 3) {
+} else if (numberCorrect < 4) {
     pass = 'FAIL';
     scoreField.className = 'incorrect';
 }
 
-scoreField.innerHTML = numberCorrect + '/5 = ' + (numberCorrect * 20) + '%' + 
-'<br /> <br />' + pass;
-
+scoreField.innerHTML = numberCorrect + '/7 = ' + Math.round((numberCorrect * (100/7))) + 
+'%' + '<br />' + pass;
