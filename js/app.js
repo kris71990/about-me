@@ -2,36 +2,38 @@
 
 confirm('This is a short quiz about me. Good luck!');
 var username = prompt('What is your name?');
+var numberCorrect = 0;
 
 // Question 1
 // asks questions, keeps track of and displays correct answers
-var numberCorrect = 0;
-var iceCream = prompt('Do I enjoy eating ice cream?').toLowerCase();
-var iceCreamField = document.getElementById('iceCream');
+function question1(){
+  var iceCream = prompt('Do I enjoy eating ice cream?').toLowerCase();
+  var iceCreamField = document.getElementById('iceCream');
 
-if (iceCream === 'y' || iceCream === 'yes' || iceCream === 'n' ||
-    iceCream === 'no') {
-  console.log('Question 1: You answered ' + iceCream + '.');
+  if (iceCream === 'y' || iceCream === 'yes' || iceCream === 'n' ||
+      iceCream === 'no') {
+    console.log('Question 1: You answered ' + iceCream + '.');
 
-  if (iceCream === 'no' || iceCream === 'n') {
-    iceCreamField.className = 'correct';
-    numberCorrect += 1;
-    alert('You are correct ' + username);
-  } else if (iceCream === 'yes' || iceCream === 'y') {
+    if (iceCream === 'no' || iceCream === 'n') {
+      iceCreamField.className = 'correct';
+      numberCorrect += 1;
+      alert('You are correct ' + username);
+    } else if (iceCream === 'yes' || iceCream === 'y') {
+      iceCreamField.className = 'incorrect';
+      alert('You are incorrect ' + username);
+    }
+
+    iceCreamField.innerHTML = 'Your answer: ' + iceCream +
+          '; ---> My answer: no';
+
+  } else {
+    console.log('Question 1: You didn\'t answer yes or no.');
+    alert('You didn\'t answer yes or no.');
     iceCreamField.className = 'incorrect';
-    alert('You are incorrect ' + username);
+    iceCreamField.innerHTML = 'Your answer: n/a; ---> My answer: no';
   }
-
-  iceCreamField.innerHTML = 'Your answer: ' + iceCream +
-        '; ---> My answer: no';
-
-} else {
-  console.log('Question 1: You didn\'t answer yes or no.');
-  alert('You didn\'t answer yes or no.');
-  iceCreamField.className = 'incorrect';
-  iceCreamField.innerHTML = 'Your answer: n/a; ---> My answer: no';
 }
-
+question1();
 // Question 2
 var pizza = prompt('Do I enjoy eating pizza?').toLowerCase();
 var pizzaField = document.getElementById('pizza');
