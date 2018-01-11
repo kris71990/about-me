@@ -1,4 +1,6 @@
 # about-me
 CF201 - week one project
 
-So far, this is a short quiz asking questions about what I like and don't like to eat. It records user answers, compares them to mine, and creates a final tally of the results.
+This is a short biographical quiz asking questions about me. It accepts answers to questions and compares them to the correct answer displaying appropriate alert messages. After all questions have been asked the page renders the user's answers and the correct answers, and calculates the score that the user got. 
+
+It also displays my educational history and a list of my favorite cities.
