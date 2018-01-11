@@ -152,122 +152,132 @@ function question5(){
 
 // Question 6
 // asks question four times, responding to user input
-var podcastsField = document.getElementById('podcasts');
-for (var i = 0; i < 4; i++) {
-  var podcasts = prompt('How many unlistened podcasts do I have on my phone? (Enter numeric value)');
-  if (isNaN(podcasts)) {
-    console.log('You didn\'t enter a numeric value, and you wasted a guess -.-');
-    alert('Enter a numeric value this time.');
-    if (i === 3) {
-      confirm('You ran out of guesses, sorry.');
-      podcastsField.className = 'incorrect';
+function question6(){
+  var podcastsField = document.getElementById('podcasts');
+  for (var i = 0; i < 4; i++) {
+    var podcasts = prompt('How many unlistened podcasts do I have on my phone? (Enter numeric value)');
+    if (isNaN(podcasts)) {
+      console.log('You didn\'t enter a numeric value, and you wasted a guess -.-');
+      alert('Enter a numeric value this time.');
+      if (i === 3) {
+        confirm('You ran out of guesses, sorry.');
+        podcastsField.className = 'incorrect';
+        podcastsField.innerHTML = 'Your answer: ' + podcasts +
+          '; ---> My answer: 306';
+      }
+    } else if (podcasts > 306) {
+      console.log('Question 6: You answered ' + podcasts + ', which is too many.');
+      alert('That is more than I have.');
+      if (i === 3) {
+        confirm('You ran out of guesses, sorry.');
+        podcastsField.className = 'incorrect';
+        podcastsField.innerHTML = 'Your answer: ' + podcasts +
+          '; ---> My answer: 306';
+      }
+    } else if (podcasts < 306) {
+      console.log('Question 6: You answered ' + podcasts + ', which is too few.');
+      alert('I have more than that.');
+      if (i === 3) {
+        confirm('You ran out of guesses, sorry.');
+        podcastsField.className = 'incorrect';
+        podcastsField.innerHTML = 'Your answer: ' + podcasts +
+          '; ---> My answer: 306';
+      }
+    } else {
+      console.log('Question 6: You answered ' + podcasts + ', which is correct!');
+      alert('Wow, that was a lucky guess.');
+      podcastsField.className = 'correct';
       podcastsField.innerHTML = 'Your answer: ' + podcasts +
-        '; ---> My answer: 306';
+          '; ---> My answer: 306';
+      numberCorrect += 1;
+      break;
     }
-  } else if (podcasts > 306) {
-    console.log('Question 6: You answered ' + podcasts + ', which is too many.');
-    alert('That is more than I have.');
-    if (i === 3) {
-      confirm('You ran out of guesses, sorry.');
-      podcastsField.className = 'incorrect';
-      podcastsField.innerHTML = 'Your answer: ' + podcasts +
-        '; ---> My answer: 306';
-    }
-  } else if (podcasts < 306) {
-    console.log('Question 6: You answered ' + podcasts + ', which is too few.');
-    alert('I have more than that.');
-    if (i === 3) {
-      confirm('You ran out of guesses, sorry.');
-      podcastsField.className = 'incorrect';
-      podcastsField.innerHTML = 'Your answer: ' + podcasts +
-        '; ---> My answer: 306';
-    }
-  } else {
-    console.log('Question 6: You answered ' + podcasts + ', which is correct!');
-    alert('Wow, that was a lucky guess.');
-    podcastsField.className = 'correct';
-    podcastsField.innerHTML = 'Your answer: ' + podcasts +
-        '; ---> My answer: 306';
-    numberCorrect += 1;
-    break;
   }
 }
 
 // Question 7
 // asks question and checks array of correct answers; if incorrect, question repeats.
 // if correct, a congratulations message appears along with the other correct answers.
-var countryField = document.getElementById('country');
-var countries = ['usa', 'russia', 'china', 'latvia', 'uk'];
-var guesses = 0;
-var livedString = 'I have lived in: ';
+function question7(){
+  var countryField = document.getElementById('country');
+  var countries = ['usa', 'russia', 'china', 'latvia', 'uk'];
+  var guesses = 0;
+  var livedString = 'I have lived in: ';
 
-for (var x = 0; x < countries.length; x++) {
-  if (countries[x] === 'usa' || countries[x] === 'uk') {
-    countries[x] = countries[x].toUpperCase();
-  } else {
-    countries[x] = countries[x].charAt(0).toUpperCase() + countries[x].slice(1);
+  for (var x = 0; x < countries.length; x++) {
+    if (countries[x] === 'usa' || countries[x] === 'uk') {
+      countries[x] = countries[x].toUpperCase();
+    } else {
+      countries[x] = countries[x].charAt(0).toUpperCase() + countries[x].slice(1);
+    }
+
+    if (x === countries.length - 1) {
+      livedString += 'and ' + countries[x] + '.';
+    } else {
+      livedString += countries[x] + ', ';
+    }
   }
 
-  if (x === countries.length - 1) {
-    livedString += 'and ' + countries[x] + '.';
-  } else {
-    livedString += countries[x] + ', ';
-  }
+  // do/while loop asks question over and over, if necessary
+  do {
+    var country = prompt('Name a country I have lived in for longer than a month.').toLowerCase();
+    var inArray = false;
+
+    // loop over countries array and checks if user information matches any contents
+    for (var j = 0; j < countries.length; j++) {
+
+      if (country === countries[j].toLowerCase()) {
+        console.log('Question 7: You are correct! ' + livedString);
+        alert('You are correct! ' + livedString);
+        inArray = true;
+        countryField.className = 'correct';
+        countryField.innerHTML = 'Your answer: ' + country +
+              '; ---> My answers: ' + livedString;
+        numberCorrect += 1;
+        guesses = 7;
+        break;
+      } else {
+        continue;
+      }
+    }
+
+    guesses += 1;
+    if (inArray === false) {
+      console.log('Question 7: You are wrong.');
+      alert('You are wrong, guess again.');
+      if (guesses === 6) {
+        countryField.innerHTML = 'Your answer: ' + country +
+              '; ---> My answers: ' + livedString;
+        countryField.className = 'incorrect';
+      }
+    }
+
+  } while (guesses < 7);
 }
 
-// do/while loop asks question over and over, if necessary
-do {
-  var country = prompt('Name a country I have lived in for longer than a month.').toLowerCase();
-  var inArray = false;
+// keeps track of score and administers a score and a pass/fail grade
+function calculateScore(){
+  var scoreField = document.getElementById('score');
+  var pass;
 
-  // loop over countries array and checks if user information matches any contents
-  for (var j = 0; j < countries.length; j++) {
-
-    if (country === countries[j].toLowerCase()) {
-      console.log('Question 7: You are correct! ' + livedString);
-      alert('You are correct! ' + livedString);
-      inArray = true;
-      countryField.className = 'correct';
-      countryField.innerHTML = 'Your answer: ' + country +
-            '; ---> My answers: ' + livedString;
-      numberCorrect += 1;
-      guesses = 7;
-      break;
-    } else {
-      continue;
-    }
+  if (numberCorrect >= 4) {
+    pass = 'You passed!';
+    scoreField.className = 'correct';
+  } else if (numberCorrect < 4) {
+    pass = 'FAIL';
+    scoreField.className = 'incorrect';
   }
 
-  guesses += 1;
-  if (inArray === false) {
-    console.log('Question 7: You are wrong.');
-    alert('You are wrong, guess again.');
-    if (guesses === 6) {
-      countryField.innerHTML = 'Your answer: ' + country +
-            '; ---> My answers: ' + livedString;
-      countryField.className = 'incorrect';
-    }
-  }
+  scoreField.innerHTML = numberCorrect + '/7 = ' + Math.round((numberCorrect * (100 / 7))) +
+  '%' + '<br />' + pass;
+}
 
-} while (guesses < 7);
-
+// calls question functions and calculateScore function
 question1();
 question2();
 question3();
 question4();
 question5();
-
-// keeps track of score and administers a score and a pass/fail grade
-var scoreField = document.getElementById('score');
-var pass;
-
-if (numberCorrect >= 4) {
-  pass = 'You passed!';
-  scoreField.className = 'correct';
-} else if (numberCorrect < 4) {
-  pass = 'FAIL';
-  scoreField.className = 'incorrect';
-}
-
-scoreField.innerHTML = numberCorrect + '/7 = ' + Math.round((numberCorrect * (100 / 7))) +
-'%' + '<br />' + pass;
+question6();
+question7();
+calculateScore();
