@@ -3,7 +3,7 @@
 confirm('This is a short quiz about me. Good luck!');
 var username = prompt('What is your name?');
 
-
+// Question 1
 // asks questions, keeps track of and displays correct answers
 var numberCorrect = 0;
 var iceCream = prompt('Do I enjoy eating ice cream?').toLowerCase();
@@ -32,6 +32,7 @@ if (iceCream === 'y' || iceCream === 'yes' || iceCream === 'n' ||
   iceCreamField.innerHTML = 'Your answer: n/a; ---> My answer: no';
 }
 
+// Question 2
 var pizza = prompt('Do I enjoy eating pizza?').toLowerCase();
 var pizzaField = document.getElementById('pizza');
 
@@ -58,6 +59,7 @@ if (pizza === 'y' || pizza === 'yes' || pizza === 'n' ||
   pizzaField.innerHTML = 'Your answer: n/a; ---> My answer: yes';
 }
 
+// Question 3
 var brusselSprouts = prompt('Do I enjoy eating brussel sprouts?').toLowerCase();
 var brusselSproutsField = document.getElementById('brusselSprouts');
 
@@ -84,6 +86,7 @@ if (brusselSprouts === 'y' || brusselSprouts === 'yes' || brusselSprouts === 'n'
   brusselSproutsField.innerHTML = 'Your answer: n/a; ---> My answer: yes';
 }
 
+// Question 4
 var cake = prompt('Do I enjoy eating cake?').toLowerCase();
 var cakeField = document.getElementById('cake');
 
@@ -110,6 +113,7 @@ if (cake === 'y' || cake === 'yes' || cake === 'n' ||
   cakeField.innerHTML = 'Your answer: n/a; ---> My answer: no';
 }
 
+// Question 5
 var eating = prompt('Do I enjoy eating?').toLowerCase();
 var eatingField = document.getElementById('eating');
 
@@ -136,7 +140,8 @@ if (eating === 'y' || eating === 'yes' || eating === 'n' ||
   eatingField.innerHTML = 'Your answer: n/a; ---> My answer: yes';
 }
 
-//asks question four times, responding to user input
+// Question 6
+// asks question four times, responding to user input
 var podcastsField = document.getElementById('podcasts');
 for (var i = 0; i < 4; i++) {
   var podcasts = prompt('How many unlistened podcasts do I have on my phone? (Enter numeric value)');
@@ -178,8 +183,9 @@ for (var i = 0; i < 4; i++) {
   }
 }
 
-//asks question and checks array of correct answers; if incorrect, question repeats.
-//if correct, a congratulations message appears along with the other correct answers.
+// Question 7
+// asks question and checks array of correct answers; if incorrect, question repeats.
+// if correct, a congratulations message appears along with the other correct answers.
 var countryField = document.getElementById('country');
 var countries = ['usa', 'russia', 'china', 'latvia', 'uk'];
 var guesses = 0;
