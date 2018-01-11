@@ -33,113 +33,121 @@ function question1(){
     iceCreamField.innerHTML = 'Your answer: n/a; ---> My answer: no';
   }
 }
-question1();
+
 // Question 2
-var pizza = prompt('Do I enjoy eating pizza?').toLowerCase();
-var pizzaField = document.getElementById('pizza');
+function question2(){
+  var pizza = prompt('Do I enjoy eating pizza?').toLowerCase();
+  var pizzaField = document.getElementById('pizza');
 
-if (pizza === 'y' || pizza === 'yes' || pizza === 'n' ||
-    pizza === 'no') {
-  console.log('Question 2: You answered ' + pizza + '.');
+  if (pizza === 'y' || pizza === 'yes' || pizza === 'n' ||
+      pizza === 'no') {
+    console.log('Question 2: You answered ' + pizza + '.');
 
-  if (pizza === 'no' || pizza === 'n') {
+    if (pizza === 'no' || pizza === 'n') {
+      pizzaField.className = 'incorrect';
+      alert('You are incorrect ' + username);
+    } else if (pizza === 'yes' || pizza === 'y') {
+      pizzaField.className = 'correct';
+      numberCorrect += 1;
+      alert('You are correct ' + username);
+    }
+
+    pizzaField.innerHTML = 'Your answer: ' + pizza +
+          '; ---> My answer: yes';
+
+  } else {
+    console.log('Question 2: You didn\'t answer yes or no.');
+    alert('You didn\'t answer yes or no.');
     pizzaField.className = 'incorrect';
-    alert('You are incorrect ' + username);
-  } else if (pizza === 'yes' || pizza === 'y') {
-    pizzaField.className = 'correct';
-    numberCorrect += 1;
-    alert('You are correct ' + username);
+    pizzaField.innerHTML = 'Your answer: n/a; ---> My answer: yes';
   }
-
-  pizzaField.innerHTML = 'Your answer: ' + pizza +
-        '; ---> My answer: yes';
-
-} else {
-  console.log('Question 2: You didn\'t answer yes or no.');
-  alert('You didn\'t answer yes or no.');
-  pizzaField.className = 'incorrect';
-  pizzaField.innerHTML = 'Your answer: n/a; ---> My answer: yes';
 }
 
 // Question 3
-var brusselSprouts = prompt('Do I enjoy eating brussel sprouts?').toLowerCase();
-var brusselSproutsField = document.getElementById('brusselSprouts');
+function question3(){
+  var brusselSprouts = prompt('Do I enjoy eating brussel sprouts?').toLowerCase();
+  var brusselSproutsField = document.getElementById('brusselSprouts');
 
-if (brusselSprouts === 'y' || brusselSprouts === 'yes' || brusselSprouts === 'n' ||
-    brusselSprouts === 'no') {
-  console.log('Question 3: You answered ' + brusselSprouts + '.');
+  if (brusselSprouts === 'y' || brusselSprouts === 'yes' || brusselSprouts === 'n' ||
+      brusselSprouts === 'no') {
+    console.log('Question 3: You answered ' + brusselSprouts + '.');
 
-  if (brusselSprouts === 'no' || brusselSprouts === 'n') {
+    if (brusselSprouts === 'no' || brusselSprouts === 'n') {
+      brusselSproutsField.className = 'incorrect';
+      alert('You are incorrect ' + username);
+    } else if (brusselSprouts === 'yes' || brusselSprouts === 'y') {
+      brusselSproutsField.className = 'correct';
+      numberCorrect += 1;
+      alert('You are correct ' + username);
+    }
+
+    brusselSproutsField.innerHTML = 'Your answer: ' + brusselSprouts +
+          '; ---> My answer: yes';
+
+  } else {
+    console.log('Question 3: You didn\'t answer yes or no.');
     brusselSproutsField.className = 'incorrect';
-    alert('You are incorrect ' + username);
-  } else if (brusselSprouts === 'yes' || brusselSprouts === 'y') {
-    brusselSproutsField.className = 'correct';
-    numberCorrect += 1;
-    alert('You are correct ' + username);
+    alert('You didn\'t answer yes or no.');
+    brusselSproutsField.innerHTML = 'Your answer: n/a; ---> My answer: yes';
   }
-
-  brusselSproutsField.innerHTML = 'Your answer: ' + brusselSprouts +
-        '; ---> My answer: yes';
-
-} else {
-  console.log('Question 3: You didn\'t answer yes or no.');
-  brusselSproutsField.className = 'incorrect';
-  alert('You didn\'t answer yes or no.');
-  brusselSproutsField.innerHTML = 'Your answer: n/a; ---> My answer: yes';
 }
 
 // Question 4
-var cake = prompt('Do I enjoy eating cake?').toLowerCase();
-var cakeField = document.getElementById('cake');
+function question4(){
+  var cake = prompt('Do I enjoy eating cake?').toLowerCase();
+  var cakeField = document.getElementById('cake');
 
-if (cake === 'y' || cake === 'yes' || cake === 'n' ||
-    cake === 'no') {
-  console.log('Question 4: You answered ' + cake + '.');
+  if (cake === 'y' || cake === 'yes' || cake === 'n' ||
+      cake === 'no') {
+    console.log('Question 4: You answered ' + cake + '.');
 
-  if (cake === 'no' || cake === 'n') {
-    cakeField.className = 'correct';
-    alert('You are correct ' + username);
-    numberCorrect += 1;
-  } else if (cake === 'yes' || cake === 'y') {
+    if (cake === 'no' || cake === 'n') {
+      cakeField.className = 'correct';
+      alert('You are correct ' + username);
+      numberCorrect += 1;
+    } else if (cake === 'yes' || cake === 'y') {
+      cakeField.className = 'incorrect';
+      alert('You are incorrect ' + username);
+    }
+
+    cakeField.innerHTML = 'Your answer: ' + cake +
+          '; ---> My answer: no';
+
+  } else {
+    console.log('Question 4: You didn\'t answer yes or no.');
     cakeField.className = 'incorrect';
-    alert('You are incorrect ' + username);
+    alert('You didn\'t answer yes or no.');
+    cakeField.innerHTML = 'Your answer: n/a; ---> My answer: no';
   }
-
-  cakeField.innerHTML = 'Your answer: ' + cake +
-        '; ---> My answer: no';
-
-} else {
-  console.log('Question 4: You didn\'t answer yes or no.');
-  cakeField.className = 'incorrect';
-  alert('You didn\'t answer yes or no.');
-  cakeField.innerHTML = 'Your answer: n/a; ---> My answer: no';
 }
 
 // Question 5
-var eating = prompt('Do I enjoy eating?').toLowerCase();
-var eatingField = document.getElementById('eating');
+function question5(){
+  var eating = prompt('Do I enjoy eating?').toLowerCase();
+  var eatingField = document.getElementById('eating');
 
-if (eating === 'y' || eating === 'yes' || eating === 'n' ||
-    eating === 'no') {
-  console.log('Question 5: You answered ' + eating + '.');
+  if (eating === 'y' || eating === 'yes' || eating === 'n' ||
+      eating === 'no') {
+    console.log('Question 5: You answered ' + eating + '.');
 
-  if (eating === 'no' || eating === 'n') {
+    if (eating === 'no' || eating === 'n') {
+      eatingField.className = 'incorrect';
+      alert('You are incorrect ' + username);
+    } else if (eating === 'yes' || eating === 'y') {
+      eatingField.className = 'correct';
+      alert('You are correct ' + username);
+      numberCorrect += 1;
+    }
+
+    eatingField.innerHTML = 'Your answer: ' + eating +
+          '; ---> My answer: yes';
+
+  } else {
+    console.log('Question 5: You didn\'t answer yes or no.');
     eatingField.className = 'incorrect';
-    alert('You are incorrect ' + username);
-  } else if (eating === 'yes' || eating === 'y') {
-    eatingField.className = 'correct';
-    alert('You are correct ' + username);
-    numberCorrect += 1;
+    alert('You didn\'t answer yes or no.');
+    eatingField.innerHTML = 'Your answer: n/a; ---> My answer: yes';
   }
-
-  eatingField.innerHTML = 'Your answer: ' + eating +
-        '; ---> My answer: yes';
-
-} else {
-  console.log('Question 5: You didn\'t answer yes or no.');
-  eatingField.className = 'incorrect';
-  alert('You didn\'t answer yes or no.');
-  eatingField.innerHTML = 'Your answer: n/a; ---> My answer: yes';
 }
 
 // Question 6
@@ -243,6 +251,11 @@ do {
 
 } while (guesses < 7);
 
+question1();
+question2();
+question3();
+question4();
+question5();
 
 // keeps track of score and administers a score and a pass/fail grade
 var scoreField = document.getElementById('score');
