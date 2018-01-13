@@ -223,6 +223,14 @@ function question7(){
     var country = prompt('Name a country I have lived in for longer than a month.').toLowerCase();
     var inArray = false;
 
+    if (country === 'united states' || country === 'united states of america' || country === 'us' || country === 'america') {
+      country = 'usa';
+    }
+
+    if (country === 'united kingdom' || country === 'great britain' || country === 'gb') {
+      country = 'uk';
+    }
+
     // loop over countries array and checks if user information matches any contents
     for (var j = 0; j < countries.length; j++) {
 
@@ -236,8 +244,6 @@ function question7(){
         numberCorrect += 1;
         guesses = 7;
         break;
-      } else {
-        continue;
       }
     }
 
